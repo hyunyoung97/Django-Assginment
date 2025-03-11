@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 사용자 이름 표시 -->
+    <h1>{{ data.이름 }}'s Information</h1>
+    <table>
+      <!-- 사용자 정보를 테이블로 표시 -->
+      {% for key, value in data.items %}
+        {% if key != '이름' %}  <!-- 이름은 제외하고 표시 -->
+          <tr>
+            <th>{{ key }}</th>  <!-- 정보 제목 -->
+            <td>{{ value }}</td>  <!-- 정보 내용 -->
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+  </div>
+</body>
+</html>
